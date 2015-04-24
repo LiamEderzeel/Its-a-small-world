@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PipeController : MonoBehaviour {
 
-	public float speed = 60.0f;
+	public float speed = 120.0f;
 
 	// Use this for initialization
 	void Start () {
