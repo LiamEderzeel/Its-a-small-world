@@ -34,7 +34,6 @@ public class PipeGrid : MonoBehaviour {
 			
 //			start[i] = posStart;
 //			end[i] = posEnd;
-			print(Mathf.Cos (angle));
 		}
 	}
 	

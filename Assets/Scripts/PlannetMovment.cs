@@ -35,14 +35,13 @@ public class PlannetMovment : MonoBehaviour {
 	void Update () {
 		_startPosition = GameObject.Find("Start"+randomLane).transform.position;
 		_endPosition = GameObject.Find("End"+randomLane).transform.position;
-		print(timeTakenDuringLerp);
 	}
 	void FixedUpdate()
 	{
 		if(_isLerping)
 		{
 			float timeSinceStarted = Time.time - _timeStartedLerping;
-			float percentageComplete = timeSinceStarted / (timeTakenDuringLerp);
+			float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
 			transform.position = Vector3.Lerp(_startPosition, _endPosition, percentageComplete);
 			if(percentageComplete >= 1.0f)
 			{
