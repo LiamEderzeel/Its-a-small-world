@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\PipeController.cs" />
      <Compile Include="Assets\Scripts\PipeGrid.cs" />
+     <Compile Include="Assets\Scripts\PlannetDitection.cs" />
      <Compile Include="Assets\Scripts\PlannetMovment.cs" />
      <Compile Include="Assets\Scripts\PlannetSpawner.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

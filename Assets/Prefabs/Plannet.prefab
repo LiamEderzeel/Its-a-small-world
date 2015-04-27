@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isLerping: 1
-  timeTakenDuringLerp: 4
+  timeTakenDuringLerp: 8
 --- !u!135 &13585378
 SphereCollider:
   m_ObjectHideFlags: 1
