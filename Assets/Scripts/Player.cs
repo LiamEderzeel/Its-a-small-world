@@ -3,42 +3,34 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    Vector3 startPos;
+	public float JumpForce = 0;
+	public float StompForce = 0;
  
-    public float amplitude = 3f;
-    public float period = 2f;
-	private bool colliding = false;
-	private float distance = 0;
+    
  
-    protected void Start() {
-        startPos = transform.position;
+    void Start()
+	{
+        
     }
+	void Update()
+	{
 
-	void Update() {
-		if(!(distance > 0.1) && colliding)
+	}
+	void FixedUpdate()
+	{
+		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			print("hit");
-		} else if(!(distance > 0.1)) {
-			print("miss");
+			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * -StompForce);
 		}
-	}
- 
-	protected void FixedUpdate() {
-		float theta = Time.time / period ;
-		//float distance = Mathf.Abs(amplitude * Mathf.Sin(theta));
-		distance = amplitude * Mathf.Abs(Mathf.Sin( Mathf.PI * theta ));
-        transform.position = startPos + Vector3.up * distance;
     }
-
-	void OnTriggerStay(Collider other) {
-		if(other.tag == "Plannet") {
-			colliding = true;
-		}
-	}
-
-	void OnTriggerExit(Collider other) {
-		if(other.tag == "Plannet") {
-			colliding = false;
+	void OnCollisionEnter(Collision collision)
+	{
+		bool collisioncap = false;
+		if(collision.collider)
+		{
+			collisioncap = true;
+			print("colission!)");
+			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce);
 		}
 	}
 }
