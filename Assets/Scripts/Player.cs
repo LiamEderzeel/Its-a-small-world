@@ -1,57 +1,44 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public bool _isLerping = false;
-	public float timeTakenDuringLerp = 4f;
-	private float _timeStartedLerping;
-	public float target = 3f;
-	private Vector3 _startPosition;
-	private Vector3 _endPosition;
+    Vector3 startPos;
+ 
+    public float amplitude = 3f;
+    public float period = 2f;
+	private bool colliding = false;
+	private float distance = 0;
+ 
+    protected void Start() {
+        startPos = transform.position;
+    }
 
-	// Use this for initialization
-	void Start () {
-		startLerping();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		//y = jumpHT * Mathf.Sin( Mathf.PI * ((Time.time - startTime)/duration) );
-		//transform.position = Vector3.Lerp (transform.position, target, (Time.time - startTime) / duration);
-
-	}
-	void OnTriggerEnter(Collider other) {
-
-	}
-	void FixedUpdate()
-	{
-		if(_isLerping)
+	void Update() {
+		if(!(distance > 0.1) && colliding)
 		{
-			float timeSinceStarted = Time.time - _timeStartedLerping;
-			float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-			percentageComplete = Mathf.Sin(percentageComplete * Mathf.PI * 0.5f);
-			//percentageComplete = 1f - Mathf.Cos(percentageComplete * Mathf.PI * 0.5f);
-			print(percentageComplete);
-
-			transform.position = Vector3.Lerp(_startPosition, _endPosition, percentageComplete);
-
-			if(percentageComplete >= 1.0f)
-			{
-				Vector3 temp  =  _startPosition;
-				_startPosition = _endPosition;
-				_endPosition = temp;
-				percentageComplete = 0f;
-			}
+			print("hit");
+		} else if(!(distance > 0.1)) {
+			print("miss");
 		}
 	}
-	void startLerping()
-	{
-		print(_isLerping);
-		_isLerping = true;
-		_timeStartedLerping = Time.time;
-		_startPosition = transform.position;
-		_endPosition = transform.position += new Vector3(0, target, 0);
+ 
+	protected void FixedUpdate() {
+		float theta = Time.time / period ;
+		//float distance = Mathf.Abs(amplitude * Mathf.Sin(theta));
+		distance = amplitude * Mathf.Abs(Mathf.Sin( Mathf.PI * theta ));
+        transform.position = startPos + Vector3.up * distance;
+    }
+
+	void OnTriggerStay(Collider other) {
+		if(other.tag == "Plannet") {
+			colliding = true;
+		}
+	}
+
+	void OnTriggerExit(Collider other) {
+		if(other.tag == "Plannet") {
+			colliding = false;
+		}
 	}
 }
-
