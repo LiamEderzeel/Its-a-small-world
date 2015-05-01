@@ -18,11 +18,15 @@ public class Player : MonoBehaviour
 		{
 			gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		}
-		print(jump);
+		//print(jump);
 	}
 	void FixedUpdate()
 	{
-		if(Input.GetKey(KeyCode.Space) && jump)
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			Debug.Log(jump);
+		}
+		if(Input.GetKeyDown(KeyCode.Space) && jump)
 		{
 			jump = false;
 			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * -StompForce);
@@ -32,15 +36,16 @@ public class Player : MonoBehaviour
 	{
 		if(collision.collider && !collisioncap)
 		{
-			jump = true;
+
 			collisioncap = true;
-			gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce);
-			Invoke("collisioncapvoid", 0.5f);
+			StartCoroutine (Reset ());
 		}
 	}
-	void collisioncapvoid()
+	IEnumerator Reset()
 	{
+		yield return new WaitForSeconds (0.1f);
 		collisioncap = false;
+		jump = true;
 	}
 }
