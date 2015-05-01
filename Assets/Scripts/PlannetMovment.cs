@@ -1,40 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlannetMovment : MonoBehaviour {
-
+public class PlannetMovment : MonoBehaviour
+{
 	public bool _isLerping = false;
 	public float timeTakenDuringLerp = 6f;
 	private float _timeStartedLerping;
-
-//	public Vector3[] start;
-//	public Vector3[] end;
-	private GameObject Pipe;
-	private PipeGrid otherScript;
 	private Vector3 _startPosition;
 	private Vector3 _endPosition;
-	private int randomLane;
+	public int lane = 0;
 
 	// Use this for initialization
-	void Start () {
-		Pipe = GameObject.Find("Pipe");
-		PipeGrid otherScript = Pipe.GetComponent<PipeGrid>();
-
-		randomLane = (int)Random.Range(0f, otherScript.NumberOfLans-1);
-
+	void Start ()
+	{
 		startLerping();
 	}
 	void startLerping()
 	{
 		_isLerping = true;
 		_timeStartedLerping = Time.time;
-
 	}
-	
 	// Update is called once per frame
-	void Update () {
-		_startPosition = GameObject.Find("Start"+randomLane).transform.position;
-		_endPosition = GameObject.Find("End"+randomLane).transform.position;
+	void Update ()
+	{
+		_startPosition = GameObject.Find("Start"+lane).transform.position;
+		_endPosition = GameObject.Find("End"+lane).transform.position;
 	}
 	void FixedUpdate()
 	{

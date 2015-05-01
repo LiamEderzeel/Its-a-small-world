@@ -1,0 +1,20 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class test2 : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+	void FixedUpdate ()
+	{
+		gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 3f);
+	}
+}

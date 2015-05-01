@@ -1,34 +1,64 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlannetSpawner : MonoBehaviour {
-
-	private bool _Spawn = false;
+public class PlannetSpawner : MonoBehaviour
+{
+	public GameObject plannet;
 	public float time = 6f;
 	private float timer = 0f;
-	public GameObject plannet;
+	private bool _Spawn = false;
 	private int plannetNumber = 1;
+	private int randomLane;
+	private GameObject Pipe;
+	private PipeGrid otherScript;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		timer = Time.time + time;
+		Pipe = GameObject.Find("Pipe");
+		PipeGrid otherScript = Pipe.GetComponent<PipeGrid>();
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-
+	void FixedUpdate ()
+	{
 		if(_Spawn)
 		{
-			GameObject obj1 = Instantiate(plannet,new Vector3(0,0,0), Quaternion.identity) as GameObject;
-			obj1.name = "Plannet" + plannetNumber;
-			obj1.transform.parent = transform;
-			plannetNumber++;
-			_Spawn = false;
-		} else {
-			if(timer <= Time.time){
+			for(int i = 0; i < 6; i++)
+			{
+				bool spawnProbability = RandomBool();
+				if(spawnProbability)
+				{
+					randomLane = (int)Random.Range(0f, 6f);
+					GameObject obj1 = Instantiate(plannet,new Vector3(0,0,0), Quaternion.identity) as GameObject;
+					obj1.name = "Plannet" + plannetNumber;
+					obj1.transform.parent = transform;
+					obj1.GetComponent<PlannetMovment>().lane = randomLane;
+					plannetNumber++;
+					_Spawn = false;
+				}
+			}
+		}
+		else
+		{
+			if(timer <= Time.time)
+			{
 				_Spawn = true;
 				timer = Time.time + time;
 			}
+		}
+	}
+	bool RandomBool()
+	{
+		int prob = (int)Random.Range(0,100);
+		if (prob < 20)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 }
