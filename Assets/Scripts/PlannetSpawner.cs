@@ -11,6 +11,7 @@ public class PlannetSpawner : MonoBehaviour
 	private int randomLane;
 	private GameObject Pipe;
 	private PipeGrid otherScript;
+	private int NumberOfLans = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -18,6 +19,7 @@ public class PlannetSpawner : MonoBehaviour
 		timer = Time.time + time;
 		Pipe = GameObject.Find("Pipe");
 		PipeGrid otherScript = Pipe.GetComponent<PipeGrid>();
+		NumberOfLans = otherScript.NumberOfLans;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class PlannetSpawner : MonoBehaviour
 				bool spawnProbability = RandomBool();
 				if(spawnProbability)
 				{
-					randomLane = (int)Random.Range(0f, 6f);
+					randomLane = (int)Random.Range(0f, NumberOfLans);
 					GameObject obj1 = Instantiate(plannet,new Vector3(0,0,0), Quaternion.identity) as GameObject;
 					obj1.name = "Plannet" + plannetNumber;
 					obj1.transform.parent = transform;

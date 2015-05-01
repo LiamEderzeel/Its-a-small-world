@@ -8,6 +8,7 @@ public class PlannetMovment : MonoBehaviour
 	private float _timeStartedLerping;
 	private Vector3 _startPosition;
 	private Vector3 _endPosition;
+	private int randomLane = 0;
 	public int lane = 0;
 
 	// Use this for initialization
@@ -23,8 +24,8 @@ public class PlannetMovment : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		_startPosition = GameObject.Find("Start"+lane).transform.position;
-		_endPosition = GameObject.Find("End"+lane).transform.position;
+			_startPosition = GameObject.Find("Start"+lane).transform.position;
+			_endPosition = GameObject.Find("End"+lane).transform.position;
 	}
 	void FixedUpdate()
 	{
