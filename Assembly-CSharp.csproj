@@ -48,8 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\PipeController.cs" />
      <Compile Include="Assets\Scripts\PipeGrid.cs" />
-     <Compile Include="Assets\Scripts\PlannetMovment.cs" />
-     <Compile Include="Assets\Scripts\PlannetSpawner.cs" />
+     <Compile Include="Assets\Scripts\PlanetMovment.cs" />
+     <Compile Include="Assets\Scripts\PlanetSpawner.cs" />
      <Compile Include="Assets\Scripts\PlayerMovment.cs" />
      <Compile Include="Assets\Scripts\test.cs" />
      <Compile Include="Assets\Scripts\test2.cs" />

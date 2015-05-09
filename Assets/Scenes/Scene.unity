@@ -130,6 +130,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 175388, guid: 2026f7df043eb4285b143d1097d6c805, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2026f7df043eb4285b143d1097d6c805, type: 2}
   m_IsPrefabParent: 0
@@ -206,7 +210,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456792, guid: 14e748bbacad34408af94cd0354937d7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.3499999
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 456792, guid: 14e748bbacad34408af94cd0354937d7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -302,6 +306,10 @@ Prefab:
       propertyPath: radius
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11426728, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 175388, guid: 2026f7df043eb4285b143d1097d6c805, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
   m_IsPrefabParent: 0

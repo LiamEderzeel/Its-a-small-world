@@ -9,14 +9,8 @@ public class PipeGrid : MonoBehaviour {
 	public float startDept = 10f;
 	public float endDept = -10f;
 	public GameObject sphere;
-//	public Vector3[] start;
-//	public Vector3[] end;
 
-	// Use this for initialization
 	void Awake () {
-//		start = new Vector3[NumberOfLans];
-//		end = new Vector3[NumberOfLans];
-		
 		for(int i = 0; i < NumberOfLans; i++)
 		{
 			float angle = i *Mathf.PI * 2 / NumberOfLans;
@@ -31,13 +25,8 @@ public class PipeGrid : MonoBehaviour {
 			GameObject obj2 = Instantiate(sphere, posEnd, Quaternion.identity) as GameObject;
 			obj2.name = "End" + i;
 			obj2.transform.parent = transform;
-			
-//			start[i] = posStart;
-//			end[i] = posEnd;
 		}
 	}
-	
-	// Update is called once per frame
 	void Update () {
 
 	}

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class PlannetSpawner : MonoBehaviour
+public class PlanetSpawner : MonoBehaviour
 {
-	public GameObject plannet;
+	public GameObject planet;
 	public float time = 6f;
 	private float timer = 0f;
 	private bool _Spawn = false;
@@ -12,8 +13,8 @@ public class PlannetSpawner : MonoBehaviour
 	private GameObject Pipe;
 	private PipeGrid otherScript;
 	private int NumberOfLans = 0;
-
-	// Use this for initialization
+	public List<GameObject> Planets = new List<GameObject>();
+	
 	void Start ()
 	{
 		timer = Time.time + time;
@@ -21,8 +22,6 @@ public class PlannetSpawner : MonoBehaviour
 		PipeGrid otherScript = Pipe.GetComponent<PipeGrid>();
 		NumberOfLans = otherScript.NumberOfLans;
 	}
-	
-	// Update is called once per frame
 	void FixedUpdate ()
 	{
 		if(_Spawn)
@@ -33,12 +32,14 @@ public class PlannetSpawner : MonoBehaviour
 				if(spawnProbability)
 				{
 					randomLane = (int)Random.Range(0f, NumberOfLans);
-					GameObject obj1 = Instantiate(plannet,new Vector3(0,0,0), Quaternion.identity) as GameObject;
-					obj1.name = "Plannet" + plannetNumber;
+					GameObject obj1 = Instantiate(planet,new Vector3(0,0,0), Quaternion.identity) as GameObject;
+					obj1.name = "Planet" + plannetNumber;
 					obj1.transform.parent = transform;
-					obj1.GetComponent<PlannetMovment>().lane = randomLane;
+					obj1.GetComponent<PlanetMovment>().lane = randomLane;
+					Planets.Add(obj1);
 					plannetNumber++;
 					_Spawn = false;
+
 				}
 			}
 		}

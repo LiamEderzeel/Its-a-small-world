@@ -7,7 +7,7 @@ public class PlayerMovment : MonoBehaviour
 	public float StompForce = 0;
 	private bool CollisionCap = false;
 	private bool Stomp = true;
-	private int PlannetCombo = 0;
+	public int PlanetCombo = 0;
 	public bool start = false;
 	private Vector3 startLocation;
 
@@ -21,7 +21,8 @@ public class PlayerMovment : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
-		if(Input.GetKeyDown(KeyCode.Space) && !start){
+		if(Input.GetKeyDown(KeyCode.Space) && !start)
+		{
 			start = true;
 		}
 		if(!start)
@@ -48,8 +49,7 @@ public class PlayerMovment : MonoBehaviour
 	{
 		if(collision.collider && !CollisionCap && collision.gameObject.tag == "Planet")
 		{
-			Debug.Log("hit");
-			PlannetCombo++;
+			PlanetCombo++;
 			CollisionCap = true;
 			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce);
 			StartCoroutine (Reset());

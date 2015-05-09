@@ -15,8 +15,8 @@ GameObject:
   - 54: {fileID: 5457876}
   - 65: {fileID: 6530752}
   m_Layer: 0
-  m_Name: Plannet
-  m_TagString: Plannet
+  m_Name: Planet
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,8 +103,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isLerping: 1
-  timeTakenDuringLerp: 5
+  timeTakenDuringLerp: 8
   lane: 0
+  ComboMultiplier: .5
+  ComboAmount: 2
+  Planets: []
 --- !u!135 &13585378
 SphereCollider:
   m_ObjectHideFlags: 1

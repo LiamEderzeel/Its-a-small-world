@@ -4,13 +4,10 @@ using System.Collections;
 public class PipeController : MonoBehaviour {
 
 	public float speed = 120.0f;
-
-	// Use this for initialization
+	
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
 	void Update () {
 		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
