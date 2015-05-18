@@ -10,19 +10,25 @@ public class PlanetMovment : MonoBehaviour
 	private Vector3 _startPosition;
 	private Vector3 _endPosition;
 	public int lane = 0;
-	public float ComboMultiplier = 0.8f;
-	private GameObject Player;
+	private float _comboMultiplier;
 	private GameObject Pipe;
 	private PlayerMovment PlayerMovment;
 	private PlanetSpawner PlanetSpawner;
-	private int PlanetCombo;
-	public int ComboAmount = 2;
+	private int _planetCombo;
+	private int _comboAmount;
 	public List<GameObject> Planets;
+
+	protected GameObject _mainCamera;
+	protected GettersAndSetters GettersAndSetters;
 	
 	void Start ()
 	{
+		_mainCamera = GameObject.Find("Main Camera");
+		GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
+		_comboMultiplier = GettersAndSetters.comboMultiplier;
+		_comboAmount = GettersAndSetters.comboAmount;
 		startLerping();
-		Player = GameObject.Find("Player");
+
 		Pipe = GameObject.Find("Pipe");
 
 	}
@@ -33,18 +39,18 @@ public class PlanetMovment : MonoBehaviour
 	}
 	void Update ()
 	{
-		PlayerMovment PlayerMovment = Player.GetComponent<PlayerMovment>();
-		PlanetCombo = PlayerMovment.PlanetCombo;
+		GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
+		_planetCombo = GettersAndSetters.planetCombo;
 		PlanetSpawner = PlanetSpawner = Pipe.GetComponent<PlanetSpawner>();
 		Planets = PlanetSpawner.Planets;
 
 			_startPosition = GameObject.Find("Start"+lane).transform.position;
 			_endPosition = GameObject.Find("End"+lane).transform.position;
-		if(PlanetCombo > ComboAmount)
+		if(_planetCombo > _comboAmount)
 		{
 			print(timeTakenDuringLerp);
-			timeTakenDuringLerp = timeTakenDuringLerp * ComboMultiplier;
-			PlayerMovment.PlanetCombo = 0;
+			timeTakenDuringLerp = timeTakenDuringLerp * _comboMultiplier;
+			GettersAndSetters.planetCombo = 0;
 			print(timeTakenDuringLerp);
 			foreach(GameObject Planet in Planets)
 			{

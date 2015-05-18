@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GettersAndSetters.cs" />
      <Compile Include="Assets\Scripts\PipeController.cs" />
      <Compile Include="Assets\Scripts\PipeGrid.cs" />
      <Compile Include="Assets\Scripts\PlanetMovment.cs" />

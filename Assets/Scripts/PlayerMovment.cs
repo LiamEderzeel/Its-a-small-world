@@ -3,17 +3,23 @@ using System.Collections;
 
 public class PlayerMovment : MonoBehaviour
 {
-	public float JumpForce = 0;
-	public float StompForce = 0;
-	private bool CollisionCap = false;
-	private bool Stomp = true;
-	public int PlanetCombo = 0;
-	public bool start = false;
-	private Vector3 startLocation;
+	private float _jumpForce;
+	private float _stompForce;
+	private bool _collisionCap = false;
+	private bool _stomp = true;
+	private int _planetCombo;
+	private bool _start = false;
+	private Vector3 _startLocation;
+	protected GameObject _mainCamera;
+	protected GettersAndSetters GettersAndSetters;
 
     void Start()
 	{
-		startLocation = gameObject.transform.position;
+		_mainCamera = GameObject.Find("Main Camera");
+		GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
+		_jumpForce = GettersAndSetters.jumpForce;
+		_stompForce = GettersAndSetters.stompForce;
+		_startLocation = gameObject.transform.position;
     }
 	void Update()
 	{
@@ -21,44 +27,47 @@ public class PlayerMovment : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
-		if(Input.GetKeyDown(KeyCode.Space) && !start)
+		if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && !_start)
 		{
-			start = true;
+			_start = true;
 		}
-		if(!start)
+		if(!_start)
 		{
 			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 3);
 		}
 		else
 		{
-			if(Input.GetKeyDown(KeyCode.Space) && Stomp)
+			if((Input.GetKeyDown(KeyCode.Space)  || Input.GetKeyDown(KeyCode.Joystick1Button0))&& _stomp)
 			{
-				Stomp = false;
-				gameObject.GetComponent<Rigidbody>().AddForce(transform.up * -StompForce);
+				_stomp = false;
+				gameObject.GetComponent<Rigidbody>().AddForce(transform.up * -_stompForce);
 			}
 			if(gameObject.transform.position.y <= -5f)
 			{
 				gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-				gameObject.transform.position = startLocation;
+				gameObject.transform.position = _startLocation;
+				GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
+				GettersAndSetters.planetCombo = 0;
 				StartCoroutine (Reset());
-				start = false;
+				_start = false;
 			}
 		}
     }
 	void OnCollisionEnter(Collision collision)
 	{
-		if(collision.collider && !CollisionCap && collision.gameObject.tag == "Planet")
+		if(collision.collider && !_collisionCap && collision.gameObject.tag == "Planet")
 		{
-			PlanetCombo++;
-			CollisionCap = true;
-			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * JumpForce);
+			GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
+			GettersAndSetters.planetCombo++;
+			_collisionCap = true;
+			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * _jumpForce);
 			StartCoroutine (Reset());
 		}
 	}
 	IEnumerator Reset()
 	{
 		yield return new WaitForSeconds (0.1f);
-		CollisionCap = false;
-		Stomp = true;
+		_collisionCap = false;
+		_stomp = true;
 	}
 }
