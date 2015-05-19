@@ -11,14 +11,14 @@ public class PlayerMovment : MonoBehaviour
 	private bool _start = false;
 	private Vector3 _startLocation;
 	protected GameObject _mainCamera;
-	protected GettersAndSetters GettersAndSetters;
+	protected GettersAndSetters _gettersAndSetters;
 
     void Start()
 	{
 		_mainCamera = GameObject.Find("Main Camera");
-		GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
-		_jumpForce = GettersAndSetters.jumpForce;
-		_stompForce = GettersAndSetters.stompForce;
+		_gettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
+		_jumpForce = _gettersAndSetters.jumpForce;
+		_stompForce = _gettersAndSetters.stompForce;
 		_startLocation = gameObject.transform.position;
     }
 	void Update()
@@ -46,8 +46,7 @@ public class PlayerMovment : MonoBehaviour
 			{
 				gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				gameObject.transform.position = _startLocation;
-				GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
-				GettersAndSetters.planetCombo = 0;
+				_gettersAndSetters.planetCombo = 0;
 				StartCoroutine (Reset());
 				_start = false;
 			}
@@ -57,8 +56,7 @@ public class PlayerMovment : MonoBehaviour
 	{
 		if(collision.collider && !_collisionCap && collision.gameObject.tag == "Planet")
 		{
-			GettersAndSetters GettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
-			GettersAndSetters.planetCombo++;
+			_gettersAndSetters.planetCombo++;
 			_collisionCap = true;
 			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * _jumpForce);
 			StartCoroutine (Reset());

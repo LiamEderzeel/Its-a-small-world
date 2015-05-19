@@ -19,7 +19,6 @@ public class PipeController : MonoBehaviour {
 		}
 		else if(Input.GetAxis("Horizontal") != 0)
 		{
-			print(Input.GetAxis("Horizontal"));
 			float roation = Input.GetAxis("Horizontal") * speed;
 			gameObject.transform.Rotate(-Vector3.forward * roation * Time.deltaTime);
 		}

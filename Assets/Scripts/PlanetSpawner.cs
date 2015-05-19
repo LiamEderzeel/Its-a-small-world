@@ -5,50 +5,57 @@ using System.Collections.Generic;
 public class PlanetSpawner : MonoBehaviour
 {
 	public GameObject planet;
-	public float time = 6f;
-	private float timer = 0f;
-	private bool _Spawn = false;
+	private float _spawnTime;
+	private float _timer = 0f;
+	private bool _spawn = false;
 	private int plannetNumber = 1;
 	private int randomLane;
 	private GameObject Pipe;
 	private PipeGrid otherScript;
-	private int NumberOfLans = 0;
-	public List<GameObject> Planets = new List<GameObject>();
+	private int _numberOfLans = 0;
+	private List<GameObject> _planets;
+
+	protected GameObject _mainCamera;
+	protected GettersAndSetters _gettersAndSetters;
 	
 	void Start ()
 	{
-		timer = Time.time + time;
+		_mainCamera = GameObject.Find("Main Camera");
+		_gettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
+		_planets = _gettersAndSetters.planets;
+		_spawnTime = _gettersAndSetters.spawnTime;
+		_numberOfLans = _gettersAndSetters.numberOfLans;
+		_timer = Time.time + _spawnTime;
 		Pipe = GameObject.Find("Pipe");
-		PipeGrid otherScript = Pipe.GetComponent<PipeGrid>();
-		NumberOfLans = otherScript.NumberOfLans;
+//		PipeGrid otherScript = Pipe.GetComponent<PipeGrid>();
+//		NumberOfLans = otherScript.NumberOfLans;
 	}
 	void FixedUpdate ()
 	{
-		if(_Spawn)
+		if(_spawn)
 		{
 			for(int i = 0; i < 6; i++)
 			{
 				bool spawnProbability = RandomBool();
 				if(spawnProbability)
 				{
-					randomLane = (int)Random.Range(0f, NumberOfLans);
+					randomLane = (int)Random.Range(0f, _numberOfLans);
 					GameObject obj1 = Instantiate(planet,new Vector3(0,0,0), Quaternion.identity) as GameObject;
 					obj1.name = "Planet" + plannetNumber;
 					obj1.transform.parent = transform;
 					obj1.GetComponent<PlanetMovment>().lane = randomLane;
-					Planets.Add(obj1);
+					_planets.Add(obj1);
 					plannetNumber++;
-					_Spawn = false;
-
+					_spawn = false;
 				}
 			}
 		}
 		else
 		{
-			if(timer <= Time.time)
+			if(_timer <= Time.time)
 			{
-				_Spawn = true;
-				timer = Time.time + time;
+				_spawn = true;
+				_timer = Time.time + _spawnTime;
 			}
 		}
 	}
