@@ -370,6 +370,10 @@ Prefab:
       propertyPath: planet
       value: 
       objectReference: {fileID: 175388, guid: 2026f7df043eb4285b143d1097d6c805, type: 2}
+    - target: {fileID: 11481062, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 154896, guid: 6c6beb4db7e4448a8a290f6e9e86ed4c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
   m_IsPrefabParent: 0
@@ -469,7 +473,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b030975d01c7244e58603f36e20e2b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _JumpForce: 250
-  _StompForce: 600
-  _ComboAmount: 2
-  _ComboMultiplier: .800000012
+  _jumpForce: 250
+  _stompForce: 600
+  _comboAmount: 2
+  _comboMultiplier: .800000012
+  _timeTakenDuringLerp: 8
+  _planets: []
+  _spawnTime: 1
+  _numberOfLans: 8
+  _startDept: 20
+  _endDept: -10
+  _radius: 4

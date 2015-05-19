@@ -78,11 +78,13 @@ public class GettersAndSetters : MonoBehaviour {
 		set { _radius = value; }
 	}
 	
-	void Start () {
+	void Start ()
+	{
 	
 	}
 
-	void Update () {
+	void Update ()
+	{
 	
 	}
 }

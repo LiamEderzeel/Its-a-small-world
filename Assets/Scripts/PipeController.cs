@@ -4,10 +4,7 @@ using System.Collections;
 public class PipeController : MonoBehaviour {
 
 	public float speed = 120.0f;
-	
-	void Start () {
-	
-	}
+
 	void Update () {
 		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
