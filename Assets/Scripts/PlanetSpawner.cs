@@ -10,10 +10,12 @@ public class PlanetSpawner : MonoBehaviour
 	private bool _spawn = false;
 	private int plannetNumber = 1;
 	private int randomLane;
+	private int randomTexture;
 	private GameObject Pipe;
 	private PipeGrid otherScript;
 	private int _numberOfLans = 0;
 	private List<GameObject> _planets;
+	public Texture[] textures;
 
 	protected GameObject _mainCamera;
 	protected GettersAndSetters _gettersAndSetters;
@@ -40,10 +42,12 @@ public class PlanetSpawner : MonoBehaviour
 				if(spawnProbability)
 				{
 					randomLane = (int)Random.Range(0f, _numberOfLans);
+					randomTexture = (int)Random.Range(0f, textures.Length);
 					GameObject obj1 = Instantiate(planet,new Vector3(0,0,0), Quaternion.identity) as GameObject;
 					obj1.name = "Planet" + plannetNumber;
 					obj1.transform.parent = transform;
 					obj1.GetComponent<PlanetMovment>().lane = randomLane;
+					obj1.GetComponent<Renderer>().material.mainTexture = textures[randomTexture];
 					_planets.Add(obj1);
 					plannetNumber++;
 					_spawn = false;

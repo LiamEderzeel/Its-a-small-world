@@ -43,7 +43,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cdcc757d824aa644e9d5dc5d97c5c804, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -102,12 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba28eeb4d9923406c9deef331687f297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isLerping: 1
-  timeTakenDuringLerp: 8
-  lane: 0
-  ComboMultiplier: .5
-  ComboAmount: 2
-  Planets: []
 --- !u!135 &13585378
 SphereCollider:
   m_ObjectHideFlags: 1
