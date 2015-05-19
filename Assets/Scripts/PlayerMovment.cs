@@ -40,6 +40,7 @@ public class PlayerMovment : MonoBehaviour
 			if((Input.GetKeyDown(KeyCode.Space)  || Input.GetKeyDown(KeyCode.Joystick1Button0))&& _stomp)
 			{
 				_stomp = false;
+				gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				gameObject.GetComponent<Rigidbody>().AddForce(transform.up * -_stompForce);
 			}
 			if(gameObject.transform.position.y <= -5f)
@@ -58,6 +59,7 @@ public class PlayerMovment : MonoBehaviour
 		{
 			_gettersAndSetters.planetCombo++;
 			_collisionCap = true;
+			gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			gameObject.GetComponent<Rigidbody>().AddForce(transform.up * _jumpForce);
 			StartCoroutine (Reset());
 		}

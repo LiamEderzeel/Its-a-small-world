@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: 939e9a2214e37ec4e8eb4fe85d074704, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 763c25e49a38e4b4e831869a032fde39, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -310,6 +310,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11426728, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
+      propertyPath: textures.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 421010, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -374,6 +378,22 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 154896, guid: 6c6beb4db7e4448a8a290f6e9e86ed4c, type: 2}
+    - target: {fileID: 11426728, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
+      propertyPath: textures.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 82ff28c6835fd7c4ab2163fe1ca5f3bd, type: 3}
+    - target: {fileID: 11426728, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
+      propertyPath: textures.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 645cde4edf5425b47aa30e043bfcb678, type: 3}
+    - target: {fileID: 11426728, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
+      propertyPath: textures.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: 5f372e4beb13e9640bf8ae8c0629cc08, type: 3}
+    - target: {fileID: 11426728, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
+      propertyPath: textures.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: a707ac7dd3903ed4c808451546c2061a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 683e0cab064f04f88a699ee597fd9b61, type: 2}
   m_IsPrefabParent: 0

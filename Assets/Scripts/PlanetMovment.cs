@@ -53,15 +53,15 @@ public class PlanetMovment : MonoBehaviour
 
 			_startPosition = GameObject.Find("Start"+lane).transform.position;
 			_endPosition = GameObject.Find("End"+lane).transform.position;
-		if(_planetCombo > _comboAmount)
-		{
-			_timeTakenDuringLerp = _timeTakenDuringLerp * _comboMultiplier;
-			_gettersAndSetters.planetCombo = 0;
-			foreach(GameObject Planet in _gettersAndSetters.planets)
-			{
-				Planet.GetComponent<PlanetMovment>()._timeTakenDuringLerp = _timeTakenDuringLerp;
-			}
-		}
+//		if(_planetCombo > _comboAmount)
+//		{
+//			_timeTakenDuringLerp = _timeTakenDuringLerp * _comboMultiplier;
+//			_gettersAndSetters.planetCombo = 0;
+//			foreach(GameObject Planet in _gettersAndSetters.planets)
+//			{
+//				Planet.GetComponent<PlanetMovment>()._timeTakenDuringLerp = _timeTakenDuringLerp;
+//			}
+//		}
 	}
 	void FixedUpdate()
 	{
