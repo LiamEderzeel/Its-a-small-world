@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
 
 	public int GameDuration;
 
+	public static bool Paused{
+		get{return _paused;}
+		set{_paused = value;}
+	}
+	private static bool _paused = false;
+
 	
 	//Here is a private reference only this class can access
 	private static GameManager _instance;
@@ -48,6 +54,7 @@ public class GameManager : MonoBehaviour
 
 		PlanetSpawner.NumberOfLans = NumberOfLans;
 		PlanetSpawner.GameDuration = GameDuration;
+		PlanetSpawner.SpawnTime = SpawnTime;
 
 		PipeGrid.NumberOfLans = NumberOfLans;
 		PipeGrid.StartDepth= StartDepth;

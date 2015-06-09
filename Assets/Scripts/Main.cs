@@ -68,6 +68,14 @@ public class Main : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {  
 			ResetGame();
 		}
+		if (Input.GetKeyDown (KeyCode.L)) {  
+			if(GameManager.Paused){
+				GameManager.Paused = false;
+			} else {
+				GameManager.Paused = true;
+			}
+		}
+
 	}
 	public static void ToGame()
 	{

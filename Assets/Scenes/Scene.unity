@@ -1253,12 +1253,12 @@ MonoBehaviour:
   PlanetComboMultiplier: 2
   JumpForce: 250
   StompForce: 600
-  SpawnTime: 0
+  SpawnTime: 4
   NumberOfLans: 8
   StartDepth: 50
   EndDepth: -10
   Radius: 4
-  GameDuration: 5
+  GameDuration: 40
 --- !u!4 &2114962913
 Transform:
   m_ObjectHideFlags: 0

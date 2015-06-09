@@ -52,7 +52,9 @@ public class PlanetMovment : MonoBehaviour
 		{
 			Destroy(gameObject, 0f);
 		}
+		if(!GameManager.Paused){
 		GetComponent<Transform>().Translate(Vector3.forward * -Time.deltaTime * _movementSpeed);
+		}
 	}
  	public static void MultiplieSpeed(){
 		_movementSpeed *= _comboMultiplier;
