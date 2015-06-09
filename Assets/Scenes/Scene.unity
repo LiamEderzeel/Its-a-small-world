@@ -1169,9 +1169,10 @@ MonoBehaviour:
   JumpForce: 250
   StompForce: 600
   SpawnTime: 0
-  NumberOfLanes: 0
-  StartDepth: 0
-  EndDepth: 0
+  NumberOfLans: 8
+  StartDepth: 50
+  EndDepth: -10
+  Radius: 4
 --- !u!4 &2114962913
 Transform:
   m_ObjectHideFlags: 0

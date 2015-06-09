@@ -16,7 +16,10 @@ public class PlanetMovment : MonoBehaviour
 	private static float _startSpeed;
 	private bool _isLerping = false;
 	private Vector3 _startPosition;
-	private Vector3 _endPosition;
+	public static float EndDepth{
+		set{ _endDepth = value;}
+	}
+	private static float _endDepth;
 	private int _lane = 0;
 	private static float _comboMultiplier;
 	private GameObject Pipe;
@@ -36,7 +39,6 @@ public class PlanetMovment : MonoBehaviour
 	{
 		_startSpeed = _movementSpeed;
 		_startPosition = GameObject.Find("Start"+lane).transform.position;
-		_endPosition = GameObject.Find("End"+lane).transform.position;
 		GetComponent<Transform>().position = _startPosition;
 		_mainCamera = GameObject.Find("Main Camera");
 
@@ -46,7 +48,7 @@ public class PlanetMovment : MonoBehaviour
 	void Update ()
 	{
 
-		if(gameObject.transform.position.z <= _endPosition.z)
+		if(gameObject.transform.position.z <= _endDepth)
 		{
 			Destroy(gameObject, 0f);
 		}

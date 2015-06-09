@@ -12,9 +12,10 @@ public class GameManager : MonoBehaviour
 	public float StompForce;
 
 	public float SpawnTime;
-	public float NumberOfLanes;
+	public int NumberOfLans;
 	public float StartDepth;
 	public float EndDepth;
+	public float Radius;
 
 	
 	//Here is a private reference only this class can access
@@ -41,6 +42,12 @@ public class GameManager : MonoBehaviour
 		PlayerMovment.JumpForce = JumpForce;
 		PlayerMovment.StompForce = StompForce;
 		PlayerMovment.ComboAmount = PlanetComboAmount;
+
+		PlanetMovment.EndDepth = EndDepth;
+
+		PipeGrid.NumberOfLans = NumberOfLans;
+		PipeGrid.StartDepth= StartDepth;
+		PipeGrid.Radius = Radius;
 	}
 	public void Start()
 	{
