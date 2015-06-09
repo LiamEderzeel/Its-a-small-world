@@ -61,6 +61,9 @@ public class Main : MonoBehaviour {
 		case GameState.Outro:
 			_outro.SetActive(true);
 			break;
+		case GameState.Menu:
+			_menu.SetActive(true);
+			break;
 		default:
 			_menu.SetActive(true);
 			break;

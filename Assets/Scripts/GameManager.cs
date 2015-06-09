@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
 		PlayerMovment.ComboAmount = PlanetComboAmount;
 		PlanetMovment.EndDepth = EndDepth;
 
+		PlanetTutorialMovment.MovementSpeed = PlanetMovementSpeed;
+
 		PlanetSpawner.NumberOfLans = NumberOfLans;
 		PlanetSpawner.GameDuration = GameDuration;
 		PlanetSpawner.SpawnTime = SpawnTime;

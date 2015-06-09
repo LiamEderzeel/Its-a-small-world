@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlanetMovment : MonoBehaviour
+public class PlanetTutorialMovment : MonoBehaviour
 {
 	public static float MovementSpeed
 	{
@@ -37,12 +37,6 @@ public class PlanetMovment : MonoBehaviour
 	
 	void Start ()
 	{
-		_startSpeed = _movementSpeed;
-		_startPosition = GameObject.Find("Start"+lane).transform.position;
-		GetComponent<Transform>().position = _startPosition;
-		_mainCamera = GameObject.Find("Main Camera");
-
-		Pipe = GameObject.Find("Pipe");
 	}
 
 	void Update ()

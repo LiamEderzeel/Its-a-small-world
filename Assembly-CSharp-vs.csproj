@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\PipeGrid.cs" />
      <Compile Include="Assets\Scripts\PlanetMovment.cs" />
      <Compile Include="Assets\Scripts\PlanetSpawner.cs" />
+     <Compile Include="Assets\Scripts\PlanetTutorialMovment.cs" />
      <Compile Include="Assets\Scripts\PlayerMovment.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\test.cs" />
