@@ -48,6 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GettersAndSetters.cs" />
+     <Compile Include="Assets\Scripts\IntroVideo.cs" />
+     <Compile Include="Assets\Scripts\Main.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\PipeController.cs" />
      <Compile Include="Assets\Scripts\PipeGrid.cs" />
      <Compile Include="Assets\Scripts\PlanetMovment.cs" />

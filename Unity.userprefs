@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Main.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlanetSpawner.cs" Line="3" Column="1" />
-      <File FileName="Assets/Scripts/PlanetMovment.cs" Line="40" Column="49" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="3" Column="34" />
-      <File FileName="Assets/Scripts/PlayerMovment.cs" Line="66" Column="5" />
+      <File FileName="Assets/Scripts/PlanetSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlanetMovment.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="47" Column="3" />
+      <File FileName="Assets/Scripts/PlayerMovment.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/IntroVideo.cs" Line="28" Column="1" />
+      <File FileName="Assets/Scripts/Main.cs" Line="60" Column="10" />
+      <File FileName="../../Project Context/unity/Assets/Scripts/City.cs" Line="62" Column="24" />
+      <File FileName="../../Project Context/unity/Assets/Scripts/scriptTitleScreen.cs" Line="11" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

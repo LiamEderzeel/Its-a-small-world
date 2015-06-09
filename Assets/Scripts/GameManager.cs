@@ -42,4 +42,8 @@ public class GameManager : MonoBehaviour
 		PlayerMovment.StompForce = StompForce;
 		PlayerMovment.ComboAmount = PlanetComboAmount;
 	}
+	public void Start()
+	{
+		gameObject.SetActive(false);
+	}
 }
