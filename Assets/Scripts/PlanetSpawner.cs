@@ -14,7 +14,16 @@ public class PlanetSpawner : MonoBehaviour
 	private int randomTexture;
 	private GameObject Pipe;
 	private PipeGrid otherScript;
-	private int _numberOfLans = 0;
+	public static int NumberOfLans{
+		set{_numberOfLans = value;}
+	}
+	private static int _numberOfLans;
+
+	public static int GameDuration
+	{
+		set{_gameDuraion = value;}
+	}
+	private static int _gameDuraion;
 	private List<GameObject> _planets;
 	public Texture[] textures;
 	protected GameObject _mainCamera;
@@ -26,7 +35,6 @@ public class PlanetSpawner : MonoBehaviour
 		_gettersAndSetters = _mainCamera.GetComponent<GettersAndSetters> ();
 		_planets = _gettersAndSetters.planets;
 		_spawnTime = _gettersAndSetters.spawnTime;
-		_numberOfLans = _gettersAndSetters.numberOfLans;
 		_timer = Time.time + _spawnTime;
 		Pipe = GameObject.Find ("Pipe");
 		_planet = (GameObject)Resources.Load ("Planet", typeof(GameObject));
@@ -38,7 +46,7 @@ public class PlanetSpawner : MonoBehaviour
 	void FixedUpdate ()
 	{
 		if (_spawn) {
-			if (plannetNumber > 10f) {
+			if (plannetNumber > _gameDuraion) {
 				GameObject obj1 = Instantiate (_endPlanet, new Vector3 (0, 0, 0), Quaternion.identity) as GameObject;
 				obj1.name = "EndPlanet";
 				obj1.transform.parent = transform;
@@ -49,7 +57,7 @@ public class PlanetSpawner : MonoBehaviour
 				for (int i = 0; i < 6; i++) {
 					bool spawnProbability = RandomBool ();
 					if (spawnProbability) {
-						randomLane = (int)Random.Range (0f, _numberOfLans);
+						randomLane = (int)Random.Range (1f, _numberOfLans);
 						randomTexture = (int)Random.Range (0f, textures.Length);
 						GameObject obj1 = Instantiate (_planet, new Vector3 (0, 0, 0), Quaternion.identity) as GameObject;
 						obj1.name = "Planet" + plannetNumber;
@@ -63,7 +71,7 @@ public class PlanetSpawner : MonoBehaviour
 				}
 			}
 		} else {
-			if (plannetNumber <= 11f) {
+			if (plannetNumber <= _gameDuraion+1) {
 				if (_timer <= Time.time) {
 					_spawn = true;
 					_timer = Time.time + _spawnTime;

@@ -94,6 +94,10 @@ public class PlayerMovment : MonoBehaviour
 			Combo();
 			StartCoroutine (Reset());
 		}
+		if(collision.collider && collision.gameObject.name == "EndPlanet")
+		{
+			Main.ToOutro();
+		}
 	}
 	IEnumerator Reset()
 	{

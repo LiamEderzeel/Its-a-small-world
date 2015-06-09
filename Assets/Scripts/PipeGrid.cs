@@ -25,7 +25,6 @@ public class PipeGrid : MonoBehaviour {
 	{
 		_mainCamera = GameObject.Find("Main Camera");
 		_gettersAndSetters = _mainCamera.GetComponent<GettersAndSetters>();
-		_numberOfLans = _gettersAndSetters.numberOfLans;
 
 
 		GameObject obj0 = Instantiate(target, new Vector3(0,0, _startDepth), Quaternion.identity) as GameObject;

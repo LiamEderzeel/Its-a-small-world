@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 	public float EndDepth;
 	public float Radius;
 
+	public int GameDuration;
+
 	
 	//Here is a private reference only this class can access
 	private static GameManager _instance;
@@ -42,8 +44,10 @@ public class GameManager : MonoBehaviour
 		PlayerMovment.JumpForce = JumpForce;
 		PlayerMovment.StompForce = StompForce;
 		PlayerMovment.ComboAmount = PlanetComboAmount;
-
 		PlanetMovment.EndDepth = EndDepth;
+
+		PlanetSpawner.NumberOfLans = NumberOfLans;
+		PlanetSpawner.GameDuration = GameDuration;
 
 		PipeGrid.NumberOfLans = NumberOfLans;
 		PipeGrid.StartDepth= StartDepth;
