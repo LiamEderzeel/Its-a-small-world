@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlanetSpawner : MonoBehaviour
 {
-	public GameObject planet;
+	private GameObject planet;
 	private float _spawnTime;
 	private float _timer = 0f;
 	private bool _spawn = false;
@@ -29,6 +29,7 @@ public class PlanetSpawner : MonoBehaviour
 		_numberOfLans = _gettersAndSetters.numberOfLans;
 		_timer = Time.time + _spawnTime;
 		Pipe = GameObject.Find("Pipe");
+		planet = (GameObject)Resources.Load("Planet", typeof(GameObject));
 //		PipeGrid otherScript = Pipe.GetComponent<PipeGrid>();
 //		NumberOfLans = otherScript.NumberOfLans;
 	}

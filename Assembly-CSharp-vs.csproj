@@ -46,12 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GettersAndSetters.cs" />
      <Compile Include="Assets\Scripts\PipeController.cs" />
      <Compile Include="Assets\Scripts\PipeGrid.cs" />
      <Compile Include="Assets\Scripts\PlanetMovment.cs" />
      <Compile Include="Assets\Scripts\PlanetSpawner.cs" />
      <Compile Include="Assets\Scripts\PlayerMovment.cs" />
+     <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\test.cs" />
      <Compile Include="Assets\Scripts\test2.cs" />
  <Reference Include="UnityEngine.UI">
