@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Main : MonoBehaviour {
+	public bool SkipIntro;
 	private enum GameState {Game=1, Intro=2, Outro=3, Menu=0};
 	private static GameState _gameState;
 
@@ -38,7 +39,7 @@ public class Main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ToGame();
+		ToMenu();
 
 	}
 	
@@ -50,7 +51,12 @@ public class Main : MonoBehaviour {
 			_gameManager.SetActive(true);
 			break;
 		case GameState.Intro:
-			_intro.SetActive(true);
+			if(SkipIntro){
+				ToGame();
+			} else{
+				_intro.SetActive(true);
+			}
+
 			break;
 		case GameState.Outro:
 			_outro.SetActive(true);
@@ -60,7 +66,7 @@ public class Main : MonoBehaviour {
 			break;
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {  
-			Application.LoadLevel (0);  
+			ResetGame();
 		}
 	}
 	public static void ToGame()
@@ -88,5 +94,9 @@ public class Main : MonoBehaviour {
 		_intro.SetActive(false);
 		_outro.SetActive(false);
 		_menu.SetActive(false);
+	}
+	public static void ResetGame()
+	{
+		Application.LoadLevel (0);
 	}
 }

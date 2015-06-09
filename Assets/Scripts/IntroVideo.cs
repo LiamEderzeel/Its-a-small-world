@@ -5,7 +5,6 @@ public class IntroVideo : MonoBehaviour {
 	//Variables
 	public MovieTexture Video;
 	private float timer;
-	public AudioClip VideoSound;
 	
 	// Use this for initialization
 	void Start ()

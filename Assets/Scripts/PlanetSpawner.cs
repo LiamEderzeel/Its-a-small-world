@@ -46,7 +46,7 @@ public class PlanetSpawner : MonoBehaviour
 	void FixedUpdate ()
 	{
 		if (_spawn) {
-			if (plannetNumber > _gameDuraion) {
+			if (plannetNumber >= _gameDuraion) {
 				GameObject obj1 = Instantiate (_endPlanet, new Vector3 (0, 0, 0), Quaternion.identity) as GameObject;
 				obj1.name = "EndPlanet";
 				obj1.transform.parent = transform;

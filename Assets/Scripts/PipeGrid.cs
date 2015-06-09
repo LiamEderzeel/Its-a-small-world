@@ -31,7 +31,7 @@ public class PipeGrid : MonoBehaviour {
 		obj0.name = "Start0"; 
 		obj0.transform.parent = transform; 
 
-		for(int i = 1; i < _numberOfLans; i++)
+		for(int i = 1; i <= _numberOfLans; i++)
 		{
 			float angle = i *Mathf.PI * 2 / _numberOfLans;
 			Vector3 pos = new Vector3(Mathf.Cos (angle), Mathf.Sin (angle), 0) * _radius;
